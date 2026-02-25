@@ -88,6 +88,6 @@ Open `NLP_Project_Solution.ipynb` in Jupyter or VS Code to view the full analysi
 
 ---
 
-**Author:** [Your Name]
+**Author:** Abhijeet Kumar
 
 **Topic:** Statistical NLP | Media & Sentiment Analysis
