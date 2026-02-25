@@ -1,54 +1,93 @@
-The Social Dilemma: Twitter Sentiment Analysis
-This project presents a comprehensive Natural Language Processing (NLP) analysis of Twitter data associated with the hashtag #TheSocialDilemma. The data was collected following the release of the Netflix documentary “The Social Dilemma”, which explores the impact of social networking and algorithms on human behavior.
 
-🎯 Project Objective
-The goal of this analysis is to:
+---
 
-Clean and explore Twitter response data.
+# The Social Dilemma: Twitter Sentiment Analysis 🐦🤖
 
-Identify user sentiments (Positive, Negative, Neutral) regarding the documentary.
+This repository contains a comprehensive Natural Language Processing (NLP) project that analyzes public sentiment following the release of the Netflix documentary, **"The Social Dilemma."** The project covers the entire data science lifecycle—from raw data cleaning and exploratory analysis to building machine learning classifiers.
 
-Build machine learning classifiers to predict tweet sentiment.
+## 📋 Project Overview
 
-📊 Dataset Description
-The dataset (TheSocialDilemma.csv) contains 20,068 tweets. Key columns include:
+The documentary explores how social media algorithms influence human behavior. This project aims to quantify public reaction by analyzing over 20,000 tweets associated with the `#TheSocialDilemma` hashtag.
 
-text: The raw content of the tweet.
+**The main objectives are:**
 
-Sentiment: Manual labels for sentiment classification.
+* **Data Wrangling:** Cleaning structured and unstructured Twitter data.
+* **Text Preprocessing:** Preparing raw text for machine learning.
+* **Sentiment Classification:** Building models to categorize tweets as **Positive**, **Negative**, or **Neutral**.
+* **Insight Generation:** Visualizing key themes and model performance.
 
-user_followers & user_verified: Metadata regarding the tweet's source.
+---
 
-hashtags: Related topics mentioned in the tweets.
+## 📊 Dataset Insights
 
-🛠️ Data Preprocessing Details
-To ensure high-quality analysis, several cleaning steps were performed:
+The dataset (`TheSocialDilemma.csv`) consists of approximately **20,068 tweets**.
 
-Language Filtering: Non-English tweets were removed based on an ASCII character threshold (keeping tweets with >90% ASCII). After filtering, 20,005 tweets remained.
+### Data Cleaning & Analysis
 
-Text Cleaning: * Elimination of special characters, numbers, and HTML tags.
+* **Missing Values:** Handled missing data in `user_location` and `hashtags`.
+* **Language Filtering:** Removed non-English tweets (maintaining 20,005 valid entries) to ensure the accuracy of the NLP models.
+* **Feature Engineering:** Analyzed user metadata such as `user_followers` and `user_verified` status.
 
-Removal of URLs, mentions (@), and hashtags.
+---
 
-Stopword removal and lowercase normalization.
+## 🛠️ Natural Language Processing Pipeline
 
-Tokenization & Lemmatization: Converting text into base forms for better feature extraction.
+To transform raw tweets into a format suitable for AI, the following pipeline was implemented:
 
-📈 Key Insights from Data Exploration
-Missing Values: The dataset was relatively clean, with some missing values in user_location, user_description, and hashtags. No missing values were found in the critical text or Sentiment columns.
+1. **Noise Removal:** Eliminated HTML tags, URLs, mentions (`@`), and special characters.
+2. **Contraction Mapping:** Replaced shorthand (e.g., "don't" → "do not").
+3. **Normalization:** Converted all text to lowercase and removed English stopwords.
+4. **Tokenization & Lemmatization:** Reduced words to their root form (e.g., "watching" → "watch").
+5. **Vectorization:** Converted text into numerical vectors using **TF-IDF / CountVectorizer**.
 
-Cardinality: High cardinality was observed in columns like user_name and user_location, while user_verified and is_retweet provided useful categorical features.
+---
 
-🤖 Modeling and Evaluation
-The project involves building a supervised learning classification model. The process includes:
+## 🚀 Machine Learning Models
 
-Vectorization: Converting cleaned text into numerical format using techniques like TF-IDF or CountVectorizer.
+We compared multiple supervised learning models to identify the most accurate sentiment predictor:
 
-Model Comparison: Testing at least three different classification models (e.g., Logistic Regression, Random Forest, Multinomial Naive Bayes).
+* **Logistic Regression** (Base Model)
+* **Random Forest Classifier**
+* **Multinomial Naive Bayes**
 
-Performance Metrics: Evaluating models using Confusion Matrices, Accuracy, Precision, and Recall.
+### Performance Metrics
 
-🏁 Findings
-The analysis explores how users reacted to the documentary's argument that algorithms are adept at "curating our reality" and influencing thoughts.
+The models were evaluated based on:
 
-A Wordcloud of the top 40 important features highlights the most significant words associated with specific sentiments (e.g., words like "scary" often appearing in negative sentiments).
+* **Accuracy Score**
+* **Precision, Recall, and F1-Score**
+* **Confusion Matrix** (to visualize misclassifications across the three sentiment categories)
+
+---
+
+## 💡 Findings & Visualizations
+
+* **Key Themes:** A Wordcloud of the top 40 features reveals that users frequently discussed the "scary" and "eye-opening" nature of algorithmic influence.
+* **Sentiment Distribution:** The analysis provides a clear breakdown of whether the global Twitter community viewed the documentary's warnings with alarm, agreement, or neutrality.
+
+---
+
+## ⚙️ How to Run
+
+1. **Clone the repo:**
+```bash
+git clone https://github.com/YOUR_USERNAME/Social-Dilemma-Sentiment-Analysis.git
+
+```
+
+
+2. **Install dependencies:**
+```bash
+pip install pandas numpy matplotlib seaborn nltk sklearn
+
+```
+
+
+3. **Run the Notebook:**
+Open `NLP_Project_Solution.ipynb` in Jupyter or VS Code to view the full analysis.
+
+---
+
+**Author:** [Your Name]
+
+**Topic:** Statistical NLP | Media & Sentiment Analysis
